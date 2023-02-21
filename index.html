@@ -25,7 +25,7 @@
         let selectedFeild = [];
         var down = document.getElementById("detail_DOWN");
         var br = document.createElement("br");
-        function callJavascriptFunction() {
+        function createFinalForm() {
             var down = document.getElementById("detail_DOWN_Tail");
             var br = document.createElement("br");
             let NewFN;
@@ -61,7 +61,7 @@
             form.appendChild(br.cloneNode());
             var but = document.createElement("button");
             but.appendChild(document.createTextNode("Add Feild Name"));
-            but.onclick = callJavascriptFunction;
+            but.onclick = createFinalForm;
             form.appendChild(but);
 
             document.getElementsByTagName("body")[0]
