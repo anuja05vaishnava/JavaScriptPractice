@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <h1>Dynamic Form</h1>
+    <p> Select one from the given options:
+        <select id="select1">
+            <option value="text">text</option>
+            <option value="email">email</option>
+            <option value="password">password</option>
+            <option value="date">date</option>
+            <option value="textarea">textarea</option>
+        </select>
+    </p>
+    <p> The value of the option selected is:
+        <span class="output"></span>
+    </p>
+    <button onClick="CreateForm()">
+        click here
+    </button>
+    <p id="detail_DOWN"></p>
+    <p id="detail_DOWN_Tail"></p>
+    <script>
+        let selectedItem = [];
+        let selectedFeild = [];
+        var down = document.getElementById("detail_DOWN");
+        var br = document.createElement("br");
+        function callJavascriptFunction() {
+            var down = document.getElementById("detail_DOWN_Tail");
+            var br = document.createElement("br");
+            let NewFN;
+            var nextform = document.createElement("form");
+            selectElement = document.getElementById('#formF');
+            selectedFeild.push(selectElement.value);
+            selectedFeild.forEach(element => {
+                NewFN = document.createElement("input");
+                NewFN.setAttribute("type", element);
+                NewFN.setAttribute("name", element);
+                NewFN.setAttribute("placeholder", element);
+                nextform.appendChild(FN);
+                nextform.appendChild(br.cloneNode());
+                document.getElementsByTagName("body")[0]
+                    .appendChild(nextform);
+            });
+        }
+        function CreateForm() {
+            selectElement = document.querySelector('#select1');
+            selectedItem.push(selectElement.value);
+            console.log(selectedItem);
+            output = selectElement.value;
+            document.querySelector('.output').textContent = selectedItem;
+            var form = document.createElement("form");
+            let FN;
+            selectedItem.forEach(element => {
+                FN = document.createElement("input");
+                FN.setAttribute("type", element);
+                FN.setAttribute("placeholder", element);
+                FN.setAttribute("id", "formF");
+            });
+            form.appendChild(FN);
+            form.appendChild(br.cloneNode());
+            var but = document.createElement("button");
+            but.appendChild(document.createTextNode("Add Feild Name"));
+            but.onclick = callJavascriptFunction;
+            form.appendChild(but);
+
+            document.getElementsByTagName("body")[0]
+                .appendChild(form);
+        }
+    </script>
+    </body>
+
+</html>
